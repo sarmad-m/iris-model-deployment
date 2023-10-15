@@ -2,7 +2,8 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
-import joblib
+import pickle
+
 
 # random seed
 seed = 42
@@ -34,4 +35,4 @@ accuracy = accuracy_score(y_test, y_pred)
 print(f"Accuracy: {accuracy}")  # Accuracy: 0.91
 
 # save the model to disk
-joblib.dump(clf, "rf_model.sav")
+pickle.dump(model, open("rf_model.sav", 'wb'))
