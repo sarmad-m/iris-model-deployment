@@ -1,7 +1,11 @@
 import pickle
 import joblib
-model = joblib.load('rf_model.pkl')
-model = pickle.load('rf_model.pkl')
+
+with open('rf_model.pkl' , 'rb') as f:
+    model = joblib.load(f)   
+
+with open('rf_model.pkl' , 'rb') as f:
+    model = pickle.load(f)   
 
 
 def predict_(data, model = model):   
