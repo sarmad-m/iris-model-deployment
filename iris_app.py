@@ -73,5 +73,5 @@ if st.button("Predict type of Iris"):
 st.text('')
 st.text('')
 st.markdown(
-    '`Initial code Created by` [santiviquez](https://twitter.com/santiviquez) | \
+    '`Initial code was developed by` [santiviquez](https://twitter.com/santiviquez) | \
          `Code modification and update by:` [Mohamed Alie](https://github.com/Kmohamedalie/iris-streamlit/tree/main)')
