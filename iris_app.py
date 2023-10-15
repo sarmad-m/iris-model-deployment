@@ -4,10 +4,8 @@ import pandas as pd
 import numpy as np
 import pickle
 
+from prediction import predict
 
-def predict(data):
-    clf = pickle.load(open('rf_model.sav', 'rb'))
-    return clf.predict(data)
 
 
 # title and description:
@@ -33,9 +31,8 @@ with col2:
 st.text('')
 
 # prediction button
-clf = pickle.load(open('rf_model.sav', 'rb'))
 if st.button("Predict type of Iris"):
-    result = clf.predict(np.array([[sepal_l, sepal_w, petal_l, petal_w]]))
+    result = predict_(np.array([[sepal_l, sepal_w, petal_l, petal_w]]))
     st.text(result[0])
 
 
