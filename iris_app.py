@@ -12,6 +12,7 @@ st.markdown('Toy model to play to classify iris flowers into \
 
 # features sliders for the four plant features:
 st.header("Plant Features")
+import streamlit as st
 col1, col2 = st.columns(2)
 
 with col1:
