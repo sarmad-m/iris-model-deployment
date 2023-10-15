@@ -2,13 +2,13 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from prediction import predict
-import joblib
 import pickle
+
 
 def predict(data):
     clf = pickle.load(open('rf_model.sav', 'rb'))
     return clf.predict(data)
+
 
 # title and description:
 st.title('Classifying Iris Flowers')
@@ -18,7 +18,6 @@ st.markdown('Toy model to play to classify iris flowers into \
 
 # features sliders for the four plant features:
 st.header("Plant Features")
-import streamlit as st
 col1, col2 = st.columns(2)
 
 with col1:
@@ -34,9 +33,9 @@ with col2:
 st.text('')
 
 # prediction button
+clf = pickle.load(open('rf_model.sav', 'rb'))
 if st.button("Predict type of Iris"):
-    result = predict(
-        np.array([[sepal_l, sepal_w, petal_l, petal_w]]))
+    result = clf.predict(np.array([[sepal_l, sepal_w, petal_l, petal_w]]))
     st.text(result[0])
 
 
