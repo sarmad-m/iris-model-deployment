@@ -38,7 +38,7 @@ accuracy = accuracy_score(y_test, y_pred)
 print(f"Accuracy: {accuracy}")  # Accuracy: 0.91
 
 # save the model to disk
-pickle.dump(model, open("rf_model.sav", 'wb'))
+pickle.dump(clf, open("rf_model.sav", 'wb'))
 
 
 ## **************** THE web APP **********************
