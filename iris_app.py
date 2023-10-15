@@ -66,7 +66,7 @@ st.text('')
 
 # prediction button
 if st.button("Predict type of Iris"):
-    result = clf.predict([sepal_l, sepal_w, petal_l, petal_w])
+    result = clf.predict(np.array([[sepal_l, sepal_w, petal_l, petal_w]]))
     st.text(result[0])
 
 
