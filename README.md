@@ -6,6 +6,15 @@ In this repository we use the [Iris](https://www.kaggle.com/datasets/uciml/iris)
 Deployed model: [Iris model deployment](https://iris-model-deployment.streamlit.app/)
 
 
+### **Packages:**
+- [numpy](scikit-learn), [pandas](https://pandas.pydata.org/)
+- [joblib](https://pypi.org/project/joblib/), [pickle5](https://pypi.org/project/pickle5/)
+- [streamlit](https://streamlit.io/)
+- [scikit-learn](https://scikit-learn.org/stable/)
+- [matplotlib](https://matplotlib.org/), [seaborn](https://seaborn.pydata.org/) , [plotly](https://plotly.com/python/)
+
+
+
 
 
 
