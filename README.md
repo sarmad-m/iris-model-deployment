@@ -1,12 +1,12 @@
-# Training and deploying machine learning model using streamlit
+# **Training and deploying machine learning model using streamlit**
 
 In this repository we use the [Iris](https://www.kaggle.com/datasets/uciml/iris) dataset, [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) and [streamlit](https://docs.streamlit.io/) to train and deploy live machine learning model on an interactive web application.
 
 
-Deployed model: [Iris model deployment](https://iris-model-deployment.streamlit.app/)
+### **Deployed model** [Iris model deployment](https://iris-model-deployment.streamlit.app/)
 
 
-### **Packages:**
+### **Packages**
 - [numpy](scikit-learn), [pandas](https://pandas.pydata.org/)
 - [joblib](https://pypi.org/project/joblib/), [pickle5](https://pypi.org/project/pickle5/)
 - [streamlit](https://streamlit.io/)
