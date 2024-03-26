@@ -31,8 +31,8 @@ SNO = float(st.number_input("SNO"))
 st.text('')
 
 # prediction button
-if st.button("Predict type of Iris"):
-    result = clf.predict(np.array([[sepal_l, sepal_w, petal_l, petal_w]]))
+if st.button("Predicts"):
+    result = clf.predict(np.array([[Pr,Frate,Favrg,Time,Vtotal,Fmax,Tmax,SNO]]))
     st.text(result[0])
 
 
