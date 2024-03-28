@@ -6,6 +6,9 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
+from sklearn.preprocessing import StandardScaler
+
+
 clf = pickle.load(open('rf_model.pkl','rb'))
 
 
@@ -30,9 +33,13 @@ SNO = float(st.number_input("SNO"))
 
 st.text('')
 
+sc=StandardScaler()
+columns_to_scale=['Pr','Frate','Favrg','Time','Vtotal','Fmax','Tmax',	'SNO']
+cols=sc.fit_transform(train[columns_to_scale])
+
 # prediction button
 if st.button("Predicts"):
-    result = clf.predict(np.array([[Pr,Frate,Favrg,Time,Vtotal,Fmax,Tmax,SNO]]))
+    result = clf.predict(cols)
     st.text(result[0])
 
 
