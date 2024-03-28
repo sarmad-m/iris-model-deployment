@@ -27,11 +27,8 @@ SNO = st.number_input("SNO")
 # Combine input features into a 2D array
 input_features = np.array([[Pr, Frate, Favrg, Time, Vtotal, Fmax, Tmax, SNO]])
 
-# Scale the input features
-sc = StandardScaler()
-scaled_features = sc.fit_transform(input_features)
 
 # Prediction button
 if st.button("Predict"):
-    result = clf.predict(scaled_features)
+    result = clf.predict(input_features)
     st.text("Predicted Class:", result[0])
