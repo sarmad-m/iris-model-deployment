@@ -35,7 +35,7 @@ st.text('')
 
 sc=StandardScaler()
 columns_to_scale=['Pr','Frate','Favrg','Time','Vtotal','Fmax','Tmax',	'SNO']
-cols=sc.fit_transform([columns_to_scale])
+cols=sc.fit_transform(columns_to_scale)
 
 # prediction button
 if st.button("Predicts"):
