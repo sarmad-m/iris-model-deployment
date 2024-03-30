@@ -32,8 +32,11 @@ def app():
     # Preprocess input data
     input_scaled = preprocess_data(input_df)
 
+    # Reshape input data for prediction
+    input_reshaped = input_scaled.reshape(1, -1)
+
     # Make prediction
-    prediction = best_rf_model.predict(input_scaled)
+    prediction = best_rf_model.predict(input_reshaped)
     predicted_class = prediction[0]
 
     # Display prediction
