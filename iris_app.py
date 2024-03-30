@@ -22,7 +22,7 @@ for col in columns_to_scale:
     input_params[col] = st.sidebar.number_input(f"Enter {col}", value=0.0)
 
 # Submit button
-if st.sidebar.button("Submit"):
+if st.sidebar.button("Predict"):
     # Preprocessing function to handle missing values
     def preprocess_data(data):
         data = data.fillna(0)  # Fill missing values with zeros
