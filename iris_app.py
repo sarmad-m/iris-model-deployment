@@ -18,6 +18,8 @@ columns_to_scale = ['Pr', 'Frate', 'Favrg', 'Time', 'Vtotal', 'Fmax', 'Tmax', 'S
 def preprocess_data(data):
     scaler = StandardScaler()
     data[columns_to_scale] = scaler.fit_transform(data[columns_to_scale])
+    # Fill any potential missing values with zeros
+    data = data.fillna(0)
     return data
 
 # Streamlit app
