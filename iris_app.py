@@ -11,10 +11,12 @@ import joblib
 # Load the pre-trained model
 model = joblib.load("rf_model.pkl")
 
+# Define the columns to scale
+columns_to_scale = ['Pr', 'Frate', 'Favrg', 'Time', 'Vtotal', 'Fmax', 'Tmax', 'SNO']
+
 # Preprocessing functions
 def preprocess_data(data):
     scaler = StandardScaler()
-    columns_to_scale = ['Pr', 'Frate', 'Favrg', 'Time', 'Vtotal', 'Fmax', 'Tmax', 'SNO']
     data[columns_to_scale] = scaler.fit_transform(data[columns_to_scale])
     return data
 
