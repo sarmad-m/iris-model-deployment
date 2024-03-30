@@ -1,23 +1,12 @@
-# import necessary packages
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score
-from sklearn.model_selection import train_test_split
 import streamlit as st
 import pandas as pd
-import numpy as np
 import pickle
 from sklearn.preprocessing import StandardScaler
-
-import streamlit as st
-import pandas as pd
-import pickle
-from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.ensemble import RandomForestClassifier
 
 # Load the trained model
 with open('rf_model.pkl', 'rb') as f:
     best_rf_model = pickle.load(f)
-
 
 # Define the feature columns
 feature_cols = ['Pr', 'Frate', 'Favrg', 'Time', 'Vtotal', 'Fmax', 'Tmax', 'SNO']
@@ -45,7 +34,7 @@ def app():
 
     # Make prediction
     prediction = best_rf_model.predict(input_scaled)
-    predicted_class = (prediction)[0]
+    predicted_class = prediction[0]
 
     # Display prediction
     st.write(f"Predicted class: {predicted_class}")
