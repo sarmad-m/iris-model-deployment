@@ -8,27 +8,47 @@ import numpy as np
 import pickle
 from sklearn.preprocessing import StandardScaler
 
-clf = pickle.load(open('rf_model.pkl', 'rb'))
+import streamlit as st
+import pandas as pd
+import pickle
+from sklearn.preprocessing import StandardScaler, LabelEncoder
+from sklearn.ensemble import RandomForestClassifier
 
-# Title and description
-st.title('Classifying Urine Flowmeter')
-st.header("Input Features")
-
-# Input features
-Pr =  st.number_input("Pr")
-Frate = st.number_input("Frate")
-Favrg = st.number_input("Favrg")
-Time = st.number_input("Time")
-Vtotal = st.number_input("Vtotal")
-Fmax = st.number_input("Fmax")
-Tmax = st.number_input("Tmax")
-SNO = st.number_input("SNO")
-
-# Combine input features into a 2D array
-input_features = np.array([[Pr, Frate, Favrg, Time, Vtotal, Fmax, Tmax, SNO]])
+# Load the trained model
+with open('rf_model.pkl', 'rb') as f:
+    best_rf_model = pickle.load(f)
 
 
-# Prediction button
-if st.button("Predict"):
-    result = clf.predict(input_features)
-    st.text("Predicted Class:", result[0])
+# Define the feature columns
+feature_cols = ['Pr', 'Frate', 'Favrg', 'Time', 'Vtotal', 'Fmax', 'Tmax', 'SNO']
+
+# Function to preprocess input data
+def preprocess_data(data):
+    scaler = StandardScaler()
+    data_scaled = scaler.fit_transform(data[feature_cols])
+    return data_scaled
+
+# Streamlit app
+def app():
+    st.title("Urine Flow Classification")
+
+    # Collect input data
+    input_data = {}
+    for col in feature_cols:
+        input_data[col] = st.number_input(f"Enter {col}", value=0.0, step=0.1)
+
+    # Convert input data to DataFrame
+    input_df = pd.DataFrame([input_data])
+
+    # Preprocess input data
+    input_scaled = preprocess_data(input_df)
+
+    # Make prediction
+    prediction = best_rf_model.predict(input_scaled)
+    predicted_class = (prediction)[0]
+
+    # Display prediction
+    st.write(f"Predicted class: {predicted_class}")
+
+if __name__ == "__main__":
+    app()
